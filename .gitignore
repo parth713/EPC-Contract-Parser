@@ -1,0 +1,28 @@
+# --- secrets (never commit) ---
+.env
+.env.*
+!.env.example
+*.key
+
+# --- real contract inputs / outputs (confidential; never commit) ---
+*.pdf
+out/
+out_macro/
+out_staged/
+
+# --- caches derived from real contracts ---
+.epc_cache/
+.epc_templates/
+
+# --- python / tooling ---
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# --- os ---
+.DS_Store

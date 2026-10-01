@@ -1,0 +1,11 @@
+google-genai>=2.24
+pymupdf>=1.26
+pydantic>=2.7
+# SQL persistence (epc_parser.db). SQLite works out of the box; for other databases also install the
+# matching async driver: asyncpg (PostgreSQL) or aiomysql (MySQL/MariaDB).
+SQLAlchemy[asyncio]>=2.0
+aiosqlite>=0.19
+# Optional async drivers for non-SQLite backends — uncomment the one you need:
+# asyncpg>=0.29        # PostgreSQL  (postgresql://...)
+# aiomysql>=0.2        # MySQL / MariaDB (mysql://...)
+# python-dateutil>=2.8 # optional: tightens date snippet cross-checks in the staged date engine

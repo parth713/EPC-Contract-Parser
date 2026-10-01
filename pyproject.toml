@@ -1,0 +1,28 @@
+[project]
+name = "epc-contract-parser"
+version = "0.1.0"
+description = "LLM-only (Gemini) structured extraction of scanned Indian EPC contract bundles: TOC + clause text as JSON, with optional SQL persistence"
+requires-python = ">=3.10"
+dependencies = [
+    "google-genai>=2.24",
+    "pymupdf>=1.26",
+    "pydantic>=2.7",
+    "SQLAlchemy[asyncio]>=2.0",
+    "aiosqlite>=0.19",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pyflakes"]
+postgres = ["asyncpg>=0.29"]
+mysql = ["aiomysql>=0.2"]
+dates = ["python-dateutil>=2.8"]
+
+[project.scripts]
+epc-parse = "epc_parser.cli:main"
+epc-parse-staged = "epc_parser.staged.__main__:main"
+
+[tool.setuptools]
+packages = ["epc_parser", "epc_parser.staged", "epc_parser.db"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
